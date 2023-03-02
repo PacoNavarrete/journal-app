@@ -1,4 +1,4 @@
-import { Grid, Typography, TextField } from '@mui/material';
+import { Grid, Typography, TextField, Button } from '@mui/material';
 
 export const LoginPage = () => {
   return (
@@ -42,6 +42,18 @@ export const LoginPage = () => {
                 type="password"
                 placeholder="123Abc"
               />
+            </Grid>
+            <Grid container>
+              <Grid item xs={12} m={6}>
+                <Button variant="contained" fullWidth>
+                  Login
+                </Button>
+              </Grid>
+              <Grid item xs={12} m={6}>
+                <Button variant="contained" fullWidth>
+                  <Typography>Google</Typography>
+                </Button>
+              </Grid>
             </Grid>
           </Grid>
         </form>
