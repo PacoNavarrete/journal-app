@@ -2,6 +2,7 @@ import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Grid, Typography } from '@mui/material';
 import TextField from '@mui/material/TextField';
+import { ImageGallery } from '../component/ImageGallery';
 
 export const NoteView = () => {
   return (
@@ -41,6 +42,7 @@ export const NoteView = () => {
           minRows={5}
         />
       </Grid>
+      <ImageGallery />
     </Grid>
   );
 };

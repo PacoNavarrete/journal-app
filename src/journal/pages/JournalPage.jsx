@@ -1,6 +1,7 @@
-import { Typography } from '@mui/material';
+import { faAdd } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconButton, Typography } from '@mui/material';
 import { JournalLayout } from '../layout/JournalLayout';
-import { ImageListView } from '../views/ImageListView';
 import { NoteView } from '../views/NoteView';
 import { NothingSelectedView } from '../views/NothingSelectedView';
 
@@ -15,7 +16,19 @@ export const JournalPage = () => {
 
       {/* <NothingSelectedView /> */}
       <NoteView />
-      <ImageListView />
+      <IconButton
+        size="large"
+        sx={{
+          color: 'white',
+          backgroundColor: 'error.main',
+          ':hover': { backgroundColor: 'error.main', opacity: 0.9 },
+          position: 'fixed',
+          right: 50,
+          bottom: 50,
+        }}
+      >
+        <FontAwesomeIcon icon={faAdd} />
+      </IconButton>
     </JournalLayout>
   );
 };
