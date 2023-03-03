@@ -1,4 +1,6 @@
 import { Grid, Typography } from '@mui/material';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 
 export const NothingSelectedView = () => {
   return (
@@ -15,7 +17,7 @@ export const NothingSelectedView = () => {
       }}
     >
       <Grid item xs={12}>
-        Star Icon
+        <FontAwesomeIcon icon={faStarHalfAlt} size="5x" inverse />
       </Grid>
       <Grid item xs={12}>
         <Typography color="white" variant="h5">

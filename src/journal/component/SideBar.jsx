@@ -1,3 +1,5 @@
+import { faBookmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Box,
   Divider,
@@ -37,7 +39,9 @@ export const SideBar = ({ drawerWidth = 240 }) => {
           {['Enero', 'Febrero', 'Marzo', 'Abril'].map((text) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
-                <ListItemIcon>TurnItNot Icon</ListItemIcon>
+                <ListItemIcon>
+                  <FontAwesomeIcon icon={faBookmark} color="#295254" />
+                </ListItemIcon>
                 <Grid container>
                   <ListItemText primary={text} />
                   <ListItemText

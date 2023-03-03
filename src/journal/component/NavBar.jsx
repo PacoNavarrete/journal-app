@@ -1,3 +1,5 @@
+import { faBars, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { AppBar, Grid, IconButton, Toolbar, Typography } from '@mui/material';
 
 export const NavBar = ({ drawerWidth = 240 }) => {
@@ -16,7 +18,7 @@ export const NavBar = ({ drawerWidth = 240 }) => {
           edge="start"
           sx={{ mr: 2, display: { sm: 'none' } }}
         >
-          <Typography variant="h6">Menu</Typography>
+          <FontAwesomeIcon icon={faBars} />
         </IconButton>
         <Grid
           container
@@ -29,8 +31,8 @@ export const NavBar = ({ drawerWidth = 240 }) => {
             JournalApp{' '}
           </Typography>
 
-          <IconButton color="error">
-            <Typography variant="h6">Logout</Typography>
+          <IconButton>
+            <FontAwesomeIcon icon={faRightFromBracket} inverse />
           </IconButton>
         </Grid>
       </Toolbar>
