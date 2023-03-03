@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material';
 import { JournalLayout } from '../layout/JournalLayout';
+import { ImageListView } from '../views/ImageListView';
 import { NoteView } from '../views/NoteView';
 import { NothingSelectedView } from '../views/NothingSelectedView';
 
@@ -14,6 +15,7 @@ export const JournalPage = () => {
 
       {/* <NothingSelectedView /> */}
       <NoteView />
+      <ImageListView />
     </JournalLayout>
   );
 };
