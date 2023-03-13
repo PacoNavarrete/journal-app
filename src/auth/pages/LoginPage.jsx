@@ -1,5 +1,6 @@
+import { useMemo } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from '../../hooks/useForm';
-import { useDispatch } from "react-redux";
 import { startChekingAuth, startGoogleSigIn } from "../../store/auth/thunks"
 
 import { Link as RouterLink } from 'react-router-dom';
@@ -48,17 +49,16 @@ function LoginButton({ submit }) {
   )
 }
 
-function GoogleButton() {
+function GoogleButton({ isAutenticanting }) {
   const dispatch = useDispatch();
   
   function onGoogleSubmit() {
     dispatch( startGoogleSigIn() )
-    console.log( "go sign in with google" )
 
   }
   return (
     <Grid item xs={12} sm={6} paddingLeft={{ sm: 0.5 }}>
-      <Button onClick={onGoogleSubmit} variant="contained" fullWidth>
+      <Button disabled={ isAutenticanting } onClick={onGoogleSubmit} variant="contained" fullWidth>
         <Typography>Google</Typography>
       </Button> 
     </Grid>
@@ -76,7 +76,10 @@ function CreateAccount() {
 }
 
 export const LoginPage = () => {
+
   const dispatch = useDispatch();
+  const { status } = useSelector( state => state.auth )
+  const isAutenticanting = useMemo(() => status === 'checking', [ status ])
 
   const {email, password, onInputChange} = useForm({
     email: "yourname@mail.com",
@@ -102,7 +105,7 @@ export const LoginPage = () => {
             gap={{ xs: 1, sm: 0 }}
           >
             <LoginButton submit={onSubmit}/>
-            <GoogleButton />
+            <GoogleButton isAutenticanting={isAutenticanting} />
           </Grid>
           <CreateAccount />
         </Grid>
