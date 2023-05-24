@@ -1,10 +1,8 @@
 import { AppRouter } from './router/AppRouter';
-import { JournalTheme } from './theme/JournalTheme';
+import './global.css'
 
 export const JournalApp = () => {
   return (
-    <JournalTheme>
       <AppRouter />
-    </JournalTheme>
   );
 };

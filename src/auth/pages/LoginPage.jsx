@@ -3,49 +3,36 @@ import { useDispatch, useSelector } from "react-redux";
 import { useForm } from '../../hooks/useForm';
 import { startChekingAuth, startGoogleSigIn } from "../../store/auth/thunks"
 
-import { Link as RouterLink } from 'react-router-dom';
-import { Grid, Typography, TextField, Button, Link } from '@mui/material';
+import { Link } from 'react-router-dom';
 import { AuthLayout } from '../layout/AuthLayout';
 
 function MailInput({email, onInputChange}) {
   return (
-    <Grid item xs={12}>
-      <TextField
-        fullWidth
-        label="mail"
-        type="email"
-        placeholder="example@mail.com"
-        name='email'
-        value={email}
-        onChange={onInputChange}
-      />
-    </Grid>
+    <div>
+      <input type="email" placeholder='example@mail.com' name='email' value={email} onChange={onInputChange}/>
+    </div>
   )
 }
 
 function PassWordInput({password, onInputChange}) {
   return (
-    <Grid item xs={12}>
-      <TextField
-        fullWidth
-        label="password"
+    <div>
+      <input
         type="password"
         placeholder="12345678"
         name='password'
         value={password}
         onChange={onInputChange}
       />
-    </Grid>
+    </div>
   )
 }
 
 function LoginButton({ submit }) {  
   return (
-  <Grid item xs={12} sm={6} paddingRight={{ sm: 0.5 }}>
-    <Button type='submit' onSubmit={submit} variant="contained" fullWidth>
+    <button type='submit' onSubmit={submit}>
       Login
-    </Button>
-  </Grid>
+    </button>
   )
 }
 
@@ -57,21 +44,17 @@ function GoogleButton({ isAutenticanting }) {
 
   }
   return (
-    <Grid item xs={12} sm={6} paddingLeft={{ sm: 0.5 }}>
-      <Button disabled={ isAutenticanting } onClick={onGoogleSubmit} variant="contained" fullWidth>
-        <Typography>Google</Typography>
-      </Button> 
-    </Grid>
+      <button disabled={ isAutenticanting } onClick={onGoogleSubmit}>
+       Google
+      </button> 
   )
 }
 
 function CreateAccount() {
   return (
-    <Grid container justifyContent="end" marginTop={1}>
-      <Link component={RouterLink} to="/auth/register" color="inherit">
+      <Link to="/auth/register" color="inherit">
         Create an account 🔥
       </Link>
-    </Grid>
   )
 }
 
@@ -95,20 +78,15 @@ export const LoginPage = () => {
   return (
     <AuthLayout title="Login">
       <form onSubmit={onSubmit}>
-        <Grid container gap={1} maxWidth={450}>
+        <div>
           <MailInput email={email} onInputChange={onInputChange} />
           <PassWordInput password={password} onInputChange={onInputChange} />
-          <Grid
-            container
-            mt={1}
-            justifyContent="space-around"
-            gap={{ xs: 1, sm: 0 }}
-          >
+          <div>
             <LoginButton submit={onSubmit}/>
             <GoogleButton isAutenticanting={isAutenticanting} />
-          </Grid>
+          </div>
           <CreateAccount />
-        </Grid>
+        </div>
       </form>
     </AuthLayout>
   );
