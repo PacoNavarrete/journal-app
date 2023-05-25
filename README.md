@@ -1,3 +1,5 @@
 # journal-app
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/vitejs-vite-kpwpaw)
+This project is under Development.
+
+You will find more details soon.
